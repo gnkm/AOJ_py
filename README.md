@@ -33,3 +33,7 @@ python xxx.py < input.txt
 ```
 exit
 ```
+
+## Template file
+
+cf. [https://github.com/gnkm/cheetsheet/tree/master/python/online_judge](https://github.com/gnkm/cheetsheet/tree/master/python/online_judge)
