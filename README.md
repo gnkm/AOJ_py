@@ -33,4 +33,3 @@ python xxx.py < input.txt
 ```
 exit
 ```
-
