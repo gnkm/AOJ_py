@@ -2,12 +2,12 @@
 
 ## Problems
 
-[Aizu Online Judge](https://judge.u-aizu.ac.jp/onlinejudge/index.jsp)
-[Aizu Online Judge beta](https://onlinejudge.u-aizu.ac.jp/home)
+- [Aizu Online Judge](https://judge.u-aizu.ac.jp/onlinejudge/index.jsp)
+- [Aizu Online Judge beta](https://onlinejudge.u-aizu.ac.jp/home) (ベータ版)
 
 ### Create virtual env
 
-2022/07/09 時点の AOJ の Python バージョンは 3.6.3 だが、M1 Mac だと pyenv で古いバージョンをインストールできないため異なるバージョンを使用する。
+2022/07/09 時点の AOJ の Python バージョンは 3.6.3 だが、M1 Mac には pyenv で古いバージョンをインストールできないため異なるバージョンを使用する。
 
 ```
 anyenv install pyenv
@@ -26,6 +26,12 @@ poetry shell
 
 ```
 python xxx.py < input.txt
+```
+
+### Run tests
+
+```
+pytest xxx.py
 ```
 
 ### Exit virtual env
