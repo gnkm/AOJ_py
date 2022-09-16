@@ -18,8 +18,8 @@ poetry env use $HOME/.anyenv/envs/pyenv/versions/3.8.13/bin/python
 ### Prepare
 
 ```
-poetry install
 poetry shell
+poetry install
 ```
 
 ### Execute
