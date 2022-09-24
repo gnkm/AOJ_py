@@ -7,6 +7,7 @@ https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/3/ITP1_3_B
 import sys
 
 input = lambda: sys.stdin.readline().rstrip('\r\n').split()
+i_sesli = lambda: int(input()[0])
 
 
 def main():
@@ -15,7 +16,8 @@ def main():
     # [x] = map(int, input())  # => 3
     i = 1
     while True:
-        [num] = map(int, input())
+        # [num] = map(int, input())
+        num = i_sesli()
         if num == 0:
             sys.exit()
 
