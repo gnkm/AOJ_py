@@ -36,6 +36,7 @@ def main():
         f = moved_in_resident[1]
         r = moved_in_resident[2]
         v = int(moved_in_resident[3])
+        # icecream.ic(b, f, r, v)
         # icecream.ic(residents['1']['1']['3'])  # ic| residents['1']['1']['3']: 0
         # icecream.ic(residents['2']['1']['3'])  # ic| residents['2']['1']['3']: 0
         residents[b][f][r] = v
@@ -44,11 +45,11 @@ def main():
         # icecream.ic(residents)
         # sys.exit()
 
-    # sys.exit()
     # icecream.ic(residents)
+    # sys.exit()
     residents_for_print = []
     for building_num, residents_per_building in residents.items():
-        icecream.ic(building_num, residents_per_building)
+        # icecream.ic(building_num, residents_per_building)
         for _, residents_per_floor in residents_per_building.items():
             line_for_print = ' '.join(residents_per_floor)
             residents_for_print.append(line_for_print)
