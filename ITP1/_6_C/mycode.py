@@ -36,7 +36,7 @@ def main():
         f = moved_in_resident[1]
         r = moved_in_resident[2]
         v = int(moved_in_resident[3])
-        # icecream.ic(b, f, r, v)
+        # icecream.ic(b, f, r, v)                # ic| b: '1', f: '1', r: '3', v: 8
         # icecream.ic(residents['1']['1']['3'])  # ic| residents['1']['1']['3']: 0
         # icecream.ic(residents['2']['1']['3'])  # ic| residents['2']['1']['3']: 0
         residents[b][f][r] += v
