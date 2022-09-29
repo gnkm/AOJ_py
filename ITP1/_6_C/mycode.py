@@ -39,7 +39,7 @@ def main():
         # icecream.ic(b, f, r, v)
         # icecream.ic(residents['1']['1']['3'])  # ic| residents['1']['1']['3']: 0
         # icecream.ic(residents['2']['1']['3'])  # ic| residents['2']['1']['3']: 0
-        residents[b][f][r] = v
+        residents[b][f][r] += v
         # icecream.ic(residents['1']['1']['3'])  # ic| residents['1']['1']['3']: 8
         # icecream.ic(residents['2']['1']['3'])  # ic| residents['2']['1']['3']: 8
         # icecream.ic(residents)
