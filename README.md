@@ -43,3 +43,8 @@ exit
 ## Template file
 
 cf. [https://github.com/gnkm/cheetsheet/tree/master/python/online_judge](https://github.com/gnkm/cheetsheet/tree/master/python/online_judge)
+
+## File name rule
+
+- `mycode.py`: I wrote
+- `example_answer_0X.py`: other's answer
