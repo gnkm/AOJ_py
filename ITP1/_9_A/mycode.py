@@ -21,7 +21,7 @@ def main():
         t = i_mesls()
         if t[0] == 'END_OF_TEXT':
             break
-        T += t
+        T += list(map(lambda x: x.lower(), t))
 
     print(
         len(
