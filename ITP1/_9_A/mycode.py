@@ -3,7 +3,7 @@
 
 https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/9/ITP1_9_A
 
-Result: Wrong Answer
+Result: Accepted
 """
 
 import sys
