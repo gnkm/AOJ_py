@@ -7,6 +7,7 @@ Result: $(result)
 """
 
 import icecream, pprint  # for debugging
+debug = icecream.ic
 import sys
 
 if 'PyPy' in sys.version:
