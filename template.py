@@ -6,8 +6,11 @@ $(URL)
 Result: $(result)
 """
 
-import icecream, pprint  # for debugging
-debug = icecream.ic
+import pkg_resources
+if any([str(i).startswith('icecream') for i in pkg_resources.working_set]):
+    import icecream
+    debug = icecream.ic
+
 import sys
 
 if 'PyPy' in sys.version:
