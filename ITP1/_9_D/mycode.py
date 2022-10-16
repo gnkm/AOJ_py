@@ -44,17 +44,8 @@ def main():
             print(string[first_arg:snd_arg + 1])
         elif order_name == 'reverse':
             head = string[:first_arg]
-
-            if first_arg == 0:
-                mid = string[snd_arg::-1]
-            else:
-                mid = string[snd_arg:first_arg - 1:-1]
-
-            if snd_arg == len(string):
-                tail = ''
-            else:
-                tail = string[snd_arg + 1:]
-
+            mid = string[first_arg:snd_arg + 1][::-1]
+            tail = string[snd_arg + 1:]
             string = head + mid + tail
         elif order_name == 'replace':
             replaced_str = order[3]
