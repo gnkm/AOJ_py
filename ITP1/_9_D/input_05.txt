@@ -1,0 +1,6 @@
+abcde
+2
+reverse 2 4
+print 0 4
+# test reverses
+# => abedc

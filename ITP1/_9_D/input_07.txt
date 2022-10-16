@@ -1,0 +1,6 @@
+abcde
+2
+replace 2 4 xyz
+print 0 4
+# test replace
+# => abxyz

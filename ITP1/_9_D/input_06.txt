@@ -1,0 +1,6 @@
+abcde
+2
+replace 0 2 xyz
+print 0 4
+# test replace
+# => xyzde
