@@ -14,7 +14,7 @@ input = lambda: sys.stdin.readline().rstrip('\r\n').split()
 
 def main():
     a, b = map(int, input())
-    d = int(a / b)
+    d = a // b
     r = a % b
     a_str = str(a)
     b_str = str(b)
