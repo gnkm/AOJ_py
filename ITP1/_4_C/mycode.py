@@ -3,10 +3,11 @@ Simple Calculator
 
 https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/4/ITP1_4_C
 
-Result: Wrong Answer(# 2)
+Result: AC
 """
 
 from decimal import Decimal, getcontext
+import math
 import sys
 
 
@@ -26,8 +27,10 @@ def main():
 
         print(
             str(
-                eval(
-                    f'Decimal({a_str}) {op} Decimal({b_str})'
+                math.floor(
+                    eval(
+                        f'Decimal({a_str}) {op} Decimal({b_str})'
+                    )
                 )
             )
         )
