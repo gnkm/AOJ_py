@@ -3,8 +3,7 @@
 
 https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/10/ITP1_10_B
 
-Result: Runtime Error(#2)
-Traceback (most recent call last): File "rep/code.py", line 20, in main() File "rep/code.py", line 10, in main c = math.sqrt(a ** 2 + b ** 2 - a * a * b * math.cos(math.radians(corner_ab_degree))) ValueError: math domain error 0.02user 0.00system 0:00.02elapsed 100%CPU (0avgtext+0avgdata 5704maxresident)k 0inputs+8outputs (0major+1790minor)pagefaults 0swaps
+Result: AC
 """
 
 import pkg_resources
