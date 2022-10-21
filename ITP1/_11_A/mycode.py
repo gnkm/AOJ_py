@@ -22,12 +22,12 @@ INF = float('inf')
 
 
 def main():
+    # test_roll()
+    # sys.exit()
     solve11a()
 
 
 def solve11a():
-    # test_roll()
-    # sys.exit()
     labels = i_mesli()
     orders = list(i_sesls())
     dice = Dice(labels)
