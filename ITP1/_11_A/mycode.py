@@ -15,7 +15,9 @@ import sys
 
 
 input = lambda: sys.stdin.readline().rstrip('\r\n').split()
+i_sesli = lambda: int(input()[0])
 i_sesls = lambda: str(input()[0])
+i_memli = lambda n: [i_mesli() for _ in range(n)]
 i_mesli = lambda: list(map(int, input()))
 
 INF = float('inf')
@@ -24,7 +26,8 @@ INF = float('inf')
 def main():
     # test_roll()
     # sys.exit()
-    solve11a()
+    # solve11a()
+    solve11b()
 
 
 def solve11a():
@@ -38,7 +41,9 @@ def solve11a():
 
 
 def solve11b():
-    pass
+    labels = i_mesli()
+    question_num = i_sesli()
+    questions = i_memli(question_num)
 
 
 class Dice():
@@ -59,6 +64,8 @@ class Dice():
         self.labels = [current_labels[i - 1] for i in self._rolled_map[direction]]
         return self
 
+    def right_side_label(self, top_side_label, following_side_label):
+        return ''
 
 def test_roll():
     labels_assert = [i for i in range(1, 6 + 1)]
