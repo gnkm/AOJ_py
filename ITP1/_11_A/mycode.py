@@ -22,6 +22,10 @@ INF = float('inf')
 
 
 def main():
+    solve11a()
+
+
+def solve11a():
     # test_roll()
     # sys.exit()
     labels = i_mesli()
@@ -31,6 +35,10 @@ def main():
         dice.roll(order)
 
     print(f'{dice.labels[0]}')
+
+
+def solve11b():
+    pass
 
 
 class Dice():
