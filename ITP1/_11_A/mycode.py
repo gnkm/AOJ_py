@@ -44,6 +44,9 @@ def solve11b():
     labels = i_mesli()
     question_num = i_sesli()
     questions = i_memli(question_num)
+    dice = Dice(labels)
+    for q in questions:
+        print(f'{dice.right_side_label(q[0], q[1])}')
 
 
 class Dice():
@@ -65,7 +68,35 @@ class Dice():
         return self
 
     def right_side_label(self, top_side_label, following_side_label):
-        return ''
+        for i, label in enumerate(self.labels):
+            if top_side_label == label:
+                top_side = i + 1
+            if following_side_label == label:
+                following_side = i + 1
+        pair = (top_side, following_side)
+        # 1
+        ret1 = [(4, 2), (2, 3), (3, 5), (5, 4)]
+        if pair in ret1:
+            return self.labels[0]
+        # 6
+        ret6 = [(e[1], e[0]) for e in ret1]
+        if pair in ret6:
+            return self.labels[5]
+        # 2
+        ret2 = [(4, 6), (6, 3), (3, 1), (1, 4)]
+        if pair in ret2:
+            return self.labels[1]
+        # 5
+        ret5 = [(e[1], e[0]) for e in ret2]
+        if pair in ret5:
+            return self.labels[4]
+        # 3
+        ret3 = [(1, 2), (2, 6), (6, 5), (5, 1)]
+        if pair in ret3:
+            return self.labels[2]
+        # 4
+        return self.labels[3]
+
 
 def test_roll():
     labels_assert = [i for i in range(1, 6 + 1)]
