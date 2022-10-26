@@ -1,7 +1,20 @@
 """
-11_A : Dice I
+11 : Dice
 
 https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/10/ITP1_11_A
+https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/10/ITP1_11_B
+https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/10/ITP1_11_C
+https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/10/ITP1_11_D
+
+ラベルの定義
+
+     ---
+    | 1 |
+ --- --- --- ---
+| 4 | 2 | 3 | 5 |
+ --- --- --- ---
+    | 6 |
+     ---
 
 Result:
 """
