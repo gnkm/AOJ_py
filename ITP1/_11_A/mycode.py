@@ -27,7 +27,8 @@ def main():
     # test_roll()
     # sys.exit()
     # solve11a()
-    solve11b()
+    # solve11b()
+    solve11c()
 
 
 def solve11a():
@@ -49,6 +50,19 @@ def solve11b():
         print(f'{dice.right_side_label(q[0], q[1])}')
 
 
+def solve11c():
+    """サイコロの同一判定
+    """
+    labels1 = i_mesli()
+    labels2 = i_mesli()
+    dice1 = Dice(labels1)
+    dice2 = Dice(labels2)
+    if dice1 == dice2:
+        print('Yes')
+    else:
+        print('No')
+
+
 class Dice():
     labels = []
     _rolled_map = {
@@ -61,6 +75,9 @@ class Dice():
 
     def __init__(self, labels):
         self.labels = labels
+
+    def __eq__(self, __o: object) -> bool:
+        pass
 
     def roll(self, direction):
         current_labels = self.labels
