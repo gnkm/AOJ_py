@@ -90,7 +90,22 @@ class Dice():
         self.labels = labels
 
     def __eq__(self, __o: object) -> bool:
-        pass
+        """同一判定。
+
+        N / S 方向に転がすと、1, 2, 6, 5 で巡回する。 ... 環 1
+        W / E 方向に転がすと、1, 4, 6, 3 で巡回する。 ... 環 2
+        したがって同一条件は下記。
+
+        - 環 1 or 環 2 の並びが一致
+        - 環 1 or 環 2 以外の面が一致
+
+        Args:
+            __o (object): _description_
+
+        Returns:
+            bool: _description_
+        """
+        return False
 
     def roll(self, direction):
         current_labels = self.labels
