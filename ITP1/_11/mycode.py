@@ -17,6 +17,10 @@ https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/10/ITP1_11_D
      ---
 
 Result:
+
+- 11A: AC
+- 11B: AC
+- 11C: WA(#9)
 """
 
 import pkg_resources
@@ -32,8 +36,6 @@ i_sesli = lambda: int(input()[0])
 i_sesls = lambda: str(input()[0])
 i_memli = lambda n: [i_mesli() for _ in range(n)]
 i_mesli = lambda: list(map(int, input()))
-
-INF = float('inf')
 
 
 def main():
@@ -89,7 +91,7 @@ class Dice():
     def __init__(self, labels):
         self.labels = labels
 
-    def __eq__(self, __o: object) -> bool:
+    def __eq__(self, another: object) -> bool:
         """同一判定。
 
         N / S 方向に転がすと、1, 2, 6, 5 で巡回する。 ... 環 1
@@ -100,11 +102,50 @@ class Dice():
         - 環 1 or 環 2 以外の面が一致
 
         Args:
-            __o (object): _description_
+            another (object): _description_
 
         Returns:
             bool: _description_
         """
+        ring1_myself = set([
+            (self.labels[0], self.labels[1]),
+            (self.labels[1], self.labels[5]),
+            (self.labels[5], self.labels[4]),
+            (self.labels[4], self.labels[0]),
+        ])
+        ring1_another = set([
+            (another.labels[0], another.labels[1]),
+            (another.labels[1], another.labels[5]),
+            (another.labels[5], another.labels[4]),
+            (another.labels[4], another.labels[0]),
+        ])
+        ring2_myself = set([
+            (self.labels[0], self.labels[3]),
+            (self.labels[3], self.labels[5]),
+            (self.labels[5], self.labels[2]),
+            (self.labels[2], self.labels[0]),
+        ])
+        ring2_another = set([
+            (another.labels[0], another.labels[3]),
+            (another.labels[3], another.labels[5]),
+            (another.labels[5], another.labels[2]),
+            (another.labels[2], another.labels[0]),
+        ])
+
+        if all([
+            ring1_myself == ring1_another,
+            self.labels[2] == another.labels[2],
+            self.labels[3] == another.labels[3],
+        ]):
+            return True
+
+        if all([
+            ring2_myself == ring2_another,
+            self.labels[1] == another.labels[1],
+            self.labels[4] == another.labels[4],
+        ]):
+            return True
+
         return False
 
     def roll(self, direction):
