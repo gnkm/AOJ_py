@@ -31,7 +31,7 @@ python xxx.py < input.txt
 ### Run tests
 
 ```
-pytest xxx.py
+pytest xxx.py --exitfirst
 ```
 
 ### Exit virtual env
