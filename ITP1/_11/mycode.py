@@ -28,7 +28,9 @@ if any([str(i).startswith('icecream') for i in pkg_resources.working_set]):
     import icecream
     debug = icecream.ic
 
+import random
 import sys
+from typing import List
 
 
 input = lambda: sys.stdin.readline().rstrip('\r\n').split()
@@ -37,9 +39,12 @@ i_sesls = lambda: str(input()[0])
 i_memli = lambda n: [i_mesli() for _ in range(n)]
 i_mesli = lambda: list(map(int, input()))
 
+DIRECTIONS = ['N', 'S', 'E', 'W']
+
 
 def main():
     # test_roll()
+    test_eq()
     # sys.exit()
     # solve11a()
     # solve11b()
@@ -184,6 +189,15 @@ class Dice():
         return self.labels[3]
 
 
+def make_random_directions(length: int = 10) -> List[str]:
+    random_directions = []
+    for _ in range(length):
+        direction = random.choice(DIRECTIONS)
+        random_directions.append(direction)
+
+    return random_directions
+
+
 def test_roll():
     labels_assert = [i for i in range(1, 6 + 1)]
 
@@ -211,6 +225,18 @@ def test_roll():
 
     _d = Dice(labels_assert)
     assert _d.roll('W').labels[0] == 3
+
+
+def test_eq(case_num=10):
+    labels_assert = [i for i in range(1, 6 + 1)]
+    directions = [make_random_directions() for _ in range(case_num)]
+    for direction_chars in directions:
+        dice_init = Dice(labels_assert)
+        dice_rolled = Dice(labels_assert)
+        for direction in direction_chars:
+            dice_rolled.roll(direction)
+        print(f'{direction_chars = }')
+        assert dice_init == dice_rolled, f'{dice_rolled.labels} must be equal to {dice_init.labels}'
 
 
 if __name__ == '__main__':
