@@ -43,7 +43,6 @@ DIRECTIONS = ['N', 'S', 'E', 'W']
 
 
 def main():
-    # test_roll()
     test_eq()
     # sys.exit()
     # solve11a()
@@ -196,35 +195,6 @@ def make_random_directions(length: int = 10) -> List[str]:
         random_directions.append(direction)
 
     return random_directions
-
-
-def test_roll():
-    labels_assert = [i for i in range(1, 6 + 1)]
-
-    _d = Dice(labels_assert)
-    _d.roll('N')
-    assert _d.labels[0] == 2, f'actual: {_d.labels[0]}'
-    _d.roll('N')
-    assert _d.labels[0] == 6, f'actual: {_d.labels[0]}'
-
-    _d = Dice(labels_assert)
-    assert _d.roll('S').labels[0] == 5
-    _d.roll('E')
-    assert _d.labels[0] == 4, f'actual: {_d.labels[0]}'
-
-    _d = Dice(labels_assert)
-    assert _d.roll('E').labels[0] == 4
-    _d.roll('E')
-    assert _d.labels[0] == 6, f'actual: {_d.labels[0]}'
-    _d.roll('S')
-    assert _d.labels[0] == 5, f'actual: {_d.labels[0]}'
-    _d.roll('W')
-    assert _d.labels[0] == 4, f'actual: {_d.labels[0]}'
-    _d.roll('N')
-    assert _d.labels[0] == 6, f'actual: {_d.labels[0]}'
-
-    _d = Dice(labels_assert)
-    assert _d.roll('W').labels[0] == 3
 
 
 def test_eq(case_num=10):
