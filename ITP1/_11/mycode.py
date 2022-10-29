@@ -107,7 +107,7 @@ class Dice():
         Returns:
             bool: _description_
         """
-        # 環 1(1, 2, 6, 5) - 1
+        # 環 1(1, 2, 6, 5) - 1(1, 2, 6, 5 の位置に存在する場合)
         ring11_myself = set([
             (self.labels[0], self.labels[1]),
             (self.labels[1], self.labels[5]),
@@ -128,7 +128,10 @@ class Dice():
         ]):
             return True
 
-        # 環 2(1, 4, 6, 3) - 1
+        # 環 1(1, 2, 6, 5) - 2(4, 2, 3, 5 の位置に存在する場合)
+        # @TODO: 実装
+
+        # 環 2(1, 4, 6, 3) - 1(1, 4, 6, 3 の位置に存在する場合)
         ring21_myself = set([
             (self.labels[0], self.labels[3]),
             (self.labels[3], self.labels[5]),
@@ -148,6 +151,9 @@ class Dice():
             self.labels[4] == another.labels[4],
         ]):
             return True
+
+        # 環 2(1, 4, 6, 3) - 2(4, 2, 3, 5 の位置に存在する場合)
+        # @TODO: 実装
 
         return False
 
