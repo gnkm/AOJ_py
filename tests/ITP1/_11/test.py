@@ -1,3 +1,10 @@
+"""Tests of ITP1/11
+
+failed cases(test)
+
+['S', 'E', 'E', 'S', 'S', 'W', 'S', 'N', 'E', 'W']: [4, 6, 2, 5, 1, 3]
+"""
+
 import random
 from typing import List
 
@@ -45,7 +52,16 @@ class TestRoll:
 
 class TestEquality:
     """Tests of 11C."""
-    def test_eq(self):
+    def test_eq_spc1(self):
+        direction_chars = ['S', 'E', 'E', 'S', 'S', 'W', 'S', 'N', 'E', 'W']
+        dice_init = Dice(LABELS_ASSERT)
+        dice_rolled = Dice(LABELS_ASSERT)
+        for direction in direction_chars:
+            dice_rolled.roll(direction)
+
+        assert dice_init == dice_rolled, f'{direction_chars = }: {dice_rolled.labels} must be equal to {dice_init.labels}'
+
+    def test_eq_random(self):
         case_num = 10
         directions = [make_random_directions() for _ in range(case_num)]
         for direction_chars in directions:
