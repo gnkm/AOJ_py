@@ -28,9 +28,7 @@ if any([str(i).startswith('icecream') for i in pkg_resources.working_set]):
     import icecream
     debug = icecream.ic
 
-import random
 import sys
-from typing import List
 
 
 input = lambda: sys.stdin.readline().rstrip('\r\n').split()
@@ -43,8 +41,6 @@ DIRECTIONS = ['N', 'S', 'E', 'W']
 
 
 def main():
-    test_eq()
-    # sys.exit()
     # solve11a()
     # solve11b()
     solve11c()
@@ -186,27 +182,6 @@ class Dice():
             return self.labels[2]
         # 4
         return self.labels[3]
-
-
-def make_random_directions(length: int = 10) -> List[str]:
-    random_directions = []
-    for _ in range(length):
-        direction = random.choice(DIRECTIONS)
-        random_directions.append(direction)
-
-    return random_directions
-
-
-def test_eq(case_num=10):
-    labels_assert = [i for i in range(1, 6 + 1)]
-    directions = [make_random_directions() for _ in range(case_num)]
-    for direction_chars in directions:
-        dice_init = Dice(labels_assert)
-        dice_rolled = Dice(labels_assert)
-        for direction in direction_chars:
-            dice_rolled.roll(direction)
-        print(f'{direction_chars = }')
-        assert dice_init == dice_rolled, f'{dice_rolled.labels} must be equal to {dice_init.labels}'
 
 
 if __name__ == '__main__':

@@ -1,7 +1,11 @@
+import random
+from typing import List
+
 from ITP1._11.mycode import Dice
 
 
 LABELS_ASSERT = [i for i in range(1, 6 + 1)]
+DIRECTIONS = ['N', 'S', 'E', 'W']
 
 
 class TestRoll:
@@ -37,3 +41,26 @@ class TestRoll:
         _d = Dice(LABELS_ASSERT)
         _d.roll('W')
         assert _d.labels[0] == 3, f'actual: {_d.labels[0]}'
+
+
+class TestEquality:
+    """Tests of 11C."""
+    def test_eq(self):
+        case_num = 10
+        directions = [make_random_directions() for _ in range(case_num)]
+        for direction_chars in directions:
+            dice_init = Dice(LABELS_ASSERT)
+            dice_rolled = Dice(LABELS_ASSERT)
+            for direction in direction_chars:
+                dice_rolled.roll(direction)
+
+            assert dice_init == dice_rolled, f'{direction_chars = }: {dice_rolled.labels} must be equal to {dice_init.labels}'
+
+
+def make_random_directions(length: int = 10) -> List[str]:
+    random_directions = []
+    for _ in range(length):
+        direction = random.choice(DIRECTIONS)
+        random_directions.append(direction)
+
+    return random_directions
