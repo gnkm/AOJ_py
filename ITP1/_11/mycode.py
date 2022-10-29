@@ -107,25 +107,35 @@ class Dice():
         Returns:
             bool: _description_
         """
-        ring1_myself = set([
+        # 環 1(1, 2, 6, 5) - 1
+        ring11_myself = set([
             (self.labels[0], self.labels[1]),
             (self.labels[1], self.labels[5]),
             (self.labels[5], self.labels[4]),
             (self.labels[4], self.labels[0]),
         ])
-        ring1_another = set([
+        ring11_another = set([
             (another.labels[0], another.labels[1]),
             (another.labels[1], another.labels[5]),
             (another.labels[5], another.labels[4]),
             (another.labels[4], another.labels[0]),
         ])
-        ring2_myself = set([
+
+        if all([
+            ring11_myself == ring11_another,
+            self.labels[2] == another.labels[2],
+            self.labels[3] == another.labels[3],
+        ]):
+            return True
+
+        # 環 2(1, 4, 6, 3) - 1
+        ring21_myself = set([
             (self.labels[0], self.labels[3]),
             (self.labels[3], self.labels[5]),
             (self.labels[5], self.labels[2]),
             (self.labels[2], self.labels[0]),
         ])
-        ring2_another = set([
+        ring21_another = set([
             (another.labels[0], another.labels[3]),
             (another.labels[3], another.labels[5]),
             (another.labels[5], another.labels[2]),
@@ -133,14 +143,7 @@ class Dice():
         ])
 
         if all([
-            ring1_myself == ring1_another,
-            self.labels[2] == another.labels[2],
-            self.labels[3] == another.labels[3],
-        ]):
-            return True
-
-        if all([
-            ring2_myself == ring2_another,
+            ring21_myself == ring21_another,
             self.labels[1] == another.labels[1],
             self.labels[4] == another.labels[4],
         ]):
