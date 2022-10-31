@@ -124,15 +124,15 @@ class Dice():
         Returns:
             bool: _description_
         """
-        # 環 1(1, 2, 6, 5)
-        ring1_myself = set([
+        # ----- 条件 1 -----
+        ring_34_myself = set([
             (self.labels[0], self.labels[1]),
             (self.labels[1], self.labels[5]),
             (self.labels[5], self.labels[4]),
             (self.labels[4], self.labels[0]),
         ])
-        ## case 1 - 1: 両者の並びが同方向の場合
-        ring11_another = set([
+
+        ring_34_another_clockwise = set([
             (another.labels[0], another.labels[1]),
             (another.labels[1], another.labels[5]),
             (another.labels[5], another.labels[4]),
@@ -140,7 +140,7 @@ class Dice():
         ])
 
         if all([
-            ring1_myself == ring11_another,
+            ring_34_myself == ring_34_another_clockwise,
             self.labels[2] == another.labels[2],
             self.labels[3] == another.labels[3],
         ]):
