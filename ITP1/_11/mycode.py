@@ -188,6 +188,13 @@ class Dice():
         ]):
             return True
 
+        # ----- 条件 5 -----
+        if all([
+            ring_25_myself == ring_34_another_clockwise,
+            self.labels[1] == another.labels[2],
+        ]):
+            return True
+
         return False
 
     def roll(self, direction):
