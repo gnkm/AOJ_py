@@ -62,7 +62,6 @@ class TestEquality:
 
         assert dice_init == dice_rolled, f'{direction_chars = }: {dice_rolled.labels} must be equal to {dice_init.labels}'
 
-    @pytest.mark.xfail
     def test_eq_spc_length10_01(self):
         """
         direction_chars = ['S', 'E', 'E', 'S', 'S', 'W', 'S', 'N', 'E', 'W']: [4, 6, 2, 5, 1, 3] must be equal to [1, 2, 3, 4, 5, 6]
