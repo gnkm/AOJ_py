@@ -94,16 +94,29 @@ class Dice():
     def __eq__(self, another: object) -> bool:
         """同一判定。
 
-        N / S 方向に転がすと、1, 2, 6, 5 で巡回する。 ... 環 ns
-        E / W 方向に転がすと、1, 4, 6, 3 で巡回する。 ... 環 ew
-        したがって同一条件は下記。
+        N / S 方向に転がすと、1, 2, 6, 5 で巡回する。(3, 4 が固定面) ... ring_34
+        E / W 方向に転がすと、1, 4, 6, 3 で巡回する。(2, 5 が固定面) ... ring_25
+        ある方向に転がした後、もう一方の方向に転がすと、 で巡回する。(1, 6 が固定面) ... ring_16
+        したがって同一条件は下記のいずれかである。
 
-        - 必要十分条件 1
-          - 環 ns or 環 ew の順序(clockwise / counterclockwise)が一致
-          - 環 ns or 環 ew 以外の面が一致
-        - 必要十分条件 2
-          - 環 ns or 環 ew の順序(clockwise / counterclockwise)が逆
-          - 環 ns or 環 ew 以外の面が逆
+        - 条件 1: 下記 2 項を満たすこと
+          - ring_34 の順序(clockwise / counterclockwise)が一致
+          - 3 の面が一致
+        - 条件 2: 下記 2 項を満たすこと
+          - ring_34 の順序(clockwise / counterclockwise)が逆
+          - 一方の 3 の面と、もう一方の 4 の面が一致
+        - 条件 3: 下記 2 項を満たすこと
+          - ring_25 の順序(clockwise / counterclockwise)が一致
+          - 2 の面が一致
+        - 条件 4: 下記 2 項を満たすこと
+          - ring_25 の順序(clockwise / counterclockwise)が逆
+          - 一方の 2 の面と、もう一方の 5 の面が一致
+        - 条件 5: 下記 2 項を満たすこと
+          - ring_25 と ring_34 の順序(clockwise / counterclockwise)が一致
+          - ring_25 の 2 の面と ring_34 の 3 の面が一致
+        - 条件 6: 下記 2 項を満たすこと
+          - ring_25 と ring_34 の順序(clockwise / counterclockwise)が逆
+          - ring_25 の 2 の面と ring_34 の 4 の面が一致
 
         Args:
             another (object): _description_
