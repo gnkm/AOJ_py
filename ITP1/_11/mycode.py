@@ -94,12 +94,16 @@ class Dice():
     def __eq__(self, another: object) -> bool:
         """同一判定。
 
-        N / S 方向に転がすと、1, 2, 6, 5 で巡回する。 ... 環 1
-        W / E 方向に転がすと、1, 4, 6, 3 で巡回する。 ... 環 2
+        N / S 方向に転がすと、1, 2, 6, 5 で巡回する。 ... 環 ns
+        E / W 方向に転がすと、1, 4, 6, 3 で巡回する。 ... 環 ew
         したがって同一条件は下記。
 
-        - 環 1 or 環 2 の並びが一致
-        - 環 1 or 環 2 以外の面が一致
+        - 必要十分条件 1
+          - 環 ns or 環 ew の順序(clockwise / counterclockwise)が一致
+          - 環 ns or 環 ew 以外の面が一致
+        - 必要十分条件 2
+          - 環 ns or 環 ew の順序(clockwise / counterclockwise)が逆
+          - 環 ns or 環 ew 以外の面が逆
 
         Args:
             another (object): _description_
