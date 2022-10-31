@@ -156,15 +156,15 @@ class Dice():
         ]):
             return True
 
-        # 環 2(1, 4, 6, 3)
-        ring2_myself = set([
+        # ----- 条件 3 -----
+        ring_25_myself = set([
             (self.labels[0], self.labels[3]),
             (self.labels[3], self.labels[5]),
             (self.labels[5], self.labels[2]),
             (self.labels[2], self.labels[0]),
         ])
-        ## case 2 - 1: 両者の並びが同方向の場合
-        ring21_another = set([
+
+        ring_25_another_clockwise = set([
             (another.labels[0], another.labels[3]),
             (another.labels[3], another.labels[5]),
             (another.labels[5], another.labels[2]),
@@ -172,7 +172,7 @@ class Dice():
         ])
 
         if all([
-            ring2_myself == ring21_another,
+            ring_25_myself == ring_25_another_clockwise,
             self.labels[1] == another.labels[1],
             self.labels[4] == another.labels[4],
         ]):
