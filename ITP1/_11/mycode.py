@@ -146,11 +146,11 @@ class Dice():
         ]):
             return True
 
-        ## case 1 - 2: 両者の並びが逆方向の場合
-        ring12_another = set([(t[1], t[0]) for t in list(ring11_another)])
+        # ----- 条件 2 -----
+        ring_34_another_counterclockwise = set([(t[1], t[0]) for t in list(ring_34_another_clockwise)])
 
         if all([
-            ring1_myself == ring12_another,
+            ring_34_myself == ring_34_another_counterclockwise,
             self.labels[2] == another.labels[3],
             self.labels[3] == another.labels[2],
         ]):
