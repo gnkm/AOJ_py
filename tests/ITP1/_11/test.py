@@ -75,6 +75,19 @@ class TestEquality:
         assert dice_init == dice_rolled, f'{direction_chars = }: {dice_rolled.labels} must be equal to {dice_init.labels}'
 
     @pytest.mark.xfail
+    def test_eq_spc_length10_02(self):
+        """
+        direction_chars = ['E', 'E', 'W', 'E', 'N', 'E', 'N', 'E', 'E', 'W']: [5, 4, 1, 6, 3, 2] must be equal to [1, 2, 3, 4, 5, 6]
+        """
+        direction_chars = ['E', 'E', 'W', 'E', 'N', 'E', 'N', 'E', 'E', 'W']
+        dice_init = Dice(LABELS_ASSERT)
+        dice_rolled = Dice(LABELS_ASSERT)
+        for direction in direction_chars:
+            dice_rolled.roll(direction)
+
+        assert dice_init == dice_rolled, f'{direction_chars = }: {dice_rolled.labels} must be equal to {dice_init.labels}'
+
+    @pytest.mark.xfail
     def test_eq_random(self):
         case_num = 10
         directions = [make_random_directions() for _ in range(case_num)]
