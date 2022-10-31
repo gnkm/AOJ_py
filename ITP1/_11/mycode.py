@@ -107,13 +107,14 @@ class Dice():
         Returns:
             bool: _description_
         """
-        # 環 1(1, 2, 6, 5) - 1(1, 2, 6, 5 の位置に存在する場合)
-        ring11_myself = set([
+        # 環 1(1, 2, 6, 5)
+        ring1_myself = set([
             (self.labels[0], self.labels[1]),
             (self.labels[1], self.labels[5]),
             (self.labels[5], self.labels[4]),
             (self.labels[4], self.labels[0]),
         ])
+        ## case 1 - 1: 両者の並びが同方向の場合
         ring11_another = set([
             (another.labels[0], another.labels[1]),
             (another.labels[1], another.labels[5]),
@@ -122,22 +123,30 @@ class Dice():
         ])
 
         if all([
-            ring11_myself == ring11_another,
+            ring1_myself == ring11_another,
             self.labels[2] == another.labels[2],
             self.labels[3] == another.labels[3],
         ]):
             return True
 
-        # 環 1(1, 2, 6, 5) - 2(4, 2, 3, 5 の位置に存在する場合)
-        # @TODO: 実装
+        ## case 1 - 2: 両者の並びが逆方向の場合
+        ring12_another = set([(t[1], t[0]) for t in list(ring11_another)])
 
-        # 環 2(1, 4, 6, 3) - 1(1, 4, 6, 3 の位置に存在する場合)
-        ring21_myself = set([
+        if all([
+            ring1_myself == ring12_another,
+            self.labels[2] == another.labels[3],
+            self.labels[3] == another.labels[2],
+        ]):
+            return True
+
+        # 環 2(1, 4, 6, 3)
+        ring2_myself = set([
             (self.labels[0], self.labels[3]),
             (self.labels[3], self.labels[5]),
             (self.labels[5], self.labels[2]),
             (self.labels[2], self.labels[0]),
         ])
+        ## case 2 - 1: 両者の並びが同方向の場合
         ring21_another = set([
             (another.labels[0], another.labels[3]),
             (another.labels[3], another.labels[5]),
@@ -146,14 +155,21 @@ class Dice():
         ])
 
         if all([
-            ring21_myself == ring21_another,
+            ring2_myself == ring21_another,
             self.labels[1] == another.labels[1],
             self.labels[4] == another.labels[4],
         ]):
             return True
 
-        # 環 2(1, 4, 6, 3) - 2(4, 2, 3, 5 の位置に存在する場合)
-        # @TODO: 実装
+        ## case 2 - 2: 両者の並びが逆方向の場合
+        ring22_another = set([(t[1], t[0]) for t in list(ring21_another)])
+
+        if all([
+            ring2_myself == ring22_another,
+            self.labels[1] == another.labels[4],
+            self.labels[4] == another.labels[1],
+        ]):
+            return True
 
         return False
 
