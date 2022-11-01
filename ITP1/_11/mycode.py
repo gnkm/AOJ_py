@@ -20,7 +20,7 @@ Result:
 
 - 11A: AC
 - 11B: AC
-- 11C: WA(#9)
+- 11C: AC
 """
 
 import pkg_resources
