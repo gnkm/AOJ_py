@@ -195,10 +195,22 @@ class Dice():
         ]):
             return True
 
+        if all([
+            ring_34_myself == ring_25_another_clockwise,
+            self.labels[2] == another.labels[1],
+        ]):
+            return True
+
         # ----- 条件 6 -----
         if all([
             ring_25_myself == ring_34_another_counterclockwise,
             self.labels[1] == another.labels[3],
+        ]):
+            return True
+
+        if all([
+            ring_34_myself == ring_25_another_counterclockwise,
+            self.labels[3] == another.labels[1],
         ]):
             return True
 
