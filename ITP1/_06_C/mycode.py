@@ -6,10 +6,12 @@ https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/6/ITP1_6_C
 Result: 未提出
 """
 
+import pkg_resources
+if any([str(i).startswith('icecream') for i in pkg_resources.working_set]):
+    import icecream
+    debug = icecream.ic
+
 import sys
-
-import icecream
-
 
 input = lambda: sys.stdin.readline().rstrip('\r\n').split()
 i_sesli = lambda: int(input()[0])
