@@ -21,6 +21,7 @@ Result:
 - 11A: AC
 - 11B: AC
 - 11C: AC
+- 11D: AC
 """
 
 import pkg_resources
@@ -43,7 +44,8 @@ DIRECTIONS = ['N', 'S', 'E', 'W']
 def main():
     # solve11a()
     # solve11b()
-    solve11c()
+    # solve11c()
+    solve11d()
 
 
 def solve11a():
@@ -76,6 +78,24 @@ def solve11c():
         print('Yes')
     else:
         print('No')
+
+
+def solve11d():
+    """複数のサイコロの同一判定
+    """
+    question_num = i_sesli()
+    labels = i_memli(question_num)
+    first_dice = Dice(labels[0])
+    for label in labels:
+        if label == labels[0]:
+            continue
+
+        compared_dice = Dice(label)
+        if first_dice == compared_dice:
+            print('No')
+            sys.exit()
+
+    print('Yes')
 
 
 class Dice():
