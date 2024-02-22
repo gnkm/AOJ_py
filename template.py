@@ -6,18 +6,21 @@ $(URL)
 Result: $(result)
 """
 
-import pkg_resources
-if any([str(i).startswith('icecream') for i in pkg_resources.working_set]):
+try:
     import icecream
+
     debug = icecream.ic
+except Exception:
+    debug = print
 
 import sys
 
-if 'PyPy' in sys.version:
+if "PyPy" in sys.version:
     import pypyjit
-    pypyjit.set_param('max_unroll_recursion=-1')
 
-input = lambda: sys.stdin.readline().rstrip('\r\n').split()
+    pypyjit.set_param("max_unroll_recursion=-1")
+
+input = lambda: sys.stdin.readline().rstrip("\r\n").split()
 i_sesli = lambda: int(input()[0])
 i_seslf = lambda: float(input()[0])
 i_sesls = lambda: str(input()[0])
@@ -33,12 +36,12 @@ i_memls = lambda n: [i_mesls() for _ in range(n)]
 
 sys.setrecursionlimit(1000000)
 
-INF = float('inf')
+INF = float("inf")
 
 
 def main():
-    pass
+    sys.exit()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
