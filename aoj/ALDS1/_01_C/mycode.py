@@ -2,7 +2,7 @@
 ALDS1_1_C < Lesson < Courses | Aizu Online Judge
 https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/all/ALDS1_1_C
 
-Result: $(result)
+Result: AC
 """
 
 import sys
