@@ -4,9 +4,7 @@ https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/all/ALDS1_4_C
 Result: WA
 """
 
-
 import sys
-
 
 input = lambda: sys.stdin.readline().rstrip("\r\n").split()
 i_sesli = lambda: int(input()[0])
