@@ -1,7 +1,7 @@
 """ALDS1_4_C < Lesson < Courses | Aizu Online Judge
 https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/all/ALDS1_4_C
 
-Result: WA
+Result: AC
 """
 
 import sys
@@ -15,14 +15,14 @@ i_memls = lambda n: [i_mesls() for _ in range(n)]
 def main():
     N = i_sesli()
     queries = i_memls(N)
-    strings = ""
+    dictionary = set()
     for query in queries:
         operation = query[0]
         query_string = query[1]
         if operation == "insert":
-            strings += query_string
+            dictionary.add(query_string)
         elif operation == "find":
-            if query_string in strings:
+            if query_string in dictionary:
                 print("yes")
             else:
                 print("no")
