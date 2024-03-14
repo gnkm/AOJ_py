@@ -9,6 +9,7 @@ Result: WA
 
 import math
 import sys
+from typing import List
 
 input = lambda: sys.stdin.readline().rstrip("\r\n").split()
 i_sesli = lambda: int(input()[0])
@@ -32,8 +33,16 @@ def main():
     sys.exit()
 
 
-def get_ideal_maximum_loading_capacity(weights, truck_num):
-    """順序を考慮しない場合の最大積載量の最小値を返す。"""
+def get_ideal_maximum_loading_capacity(weights: List[int], truck_num: int) -> int:
+    """順序を考慮しない場合の最大積載量の最小値を返す。
+
+    Args:
+        weights (List[int]): 荷物の重量リスト
+        truck_num (int): トラックの台数
+
+    Returns:
+        int: 順序を考慮しない場合の最大積載量の最小値
+    """
     weight_per_truck_min = math.ceil(sum(weights) / truck_num)
     weight_max = max(weights)
     ret = max(weight_per_truck_min, weight_max)
