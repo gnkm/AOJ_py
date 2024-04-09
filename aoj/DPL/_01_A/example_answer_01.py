@@ -14,6 +14,9 @@ INF = float("inf")
 def main():
     payment, coin_type_num = map(int, input().split())
     coins = mapl(int, input().split())
+    # ある支払額に対する、最小使用コイン枚数
+    # table[支払額] = 支払額の支払いに必要なコインの最小枚数
+    # table[payment] が回答になる
     table = [INF] * (payment + 1)
     table[0] = 0
     for coin in coins:
