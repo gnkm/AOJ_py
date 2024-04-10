@@ -1,32 +1,33 @@
 """DPL_1_B < Library < Courses | Aizu Online Judge
 https://onlinejudge.u-aizu.ac.jp/courses/library/7/DPL/1/DPL_1_B
+https://onlinejudge.u-aizu.ac.jp/solutions/problem/DPL_1_B/review/4063442/naoto172/Python3
 
-Result: $(result)
+Result: AC
 """
 
-try:
-    import icecream
-
-    debug = icecream.ic
-except Exception:
-    debug = print
-
 import sys
-
-if "PyPy" in sys.version:
-    import pypyjit
-
-    pypyjit.set_param("max_unroll_recursion=-1")
 
 input = lambda: sys.stdin.readline().rstrip("\r\n").split()
 i_mesli = lambda: list(map(int, input()))
 i_memli = lambda n: [i_mesli() for _ in range(n)]
 
+INF = float("inf")
+
 
 def main():
     N, W = i_mesli()
     items = i_memli(N)
-    # @TODO: Implement
+    dp = [-INF] * (W + 1)
+    dp[0] = 0
+    for item_info in items:
+        value_item = item_info[0]
+        weight_item = item_info[1]
+        for i in range(W, weight_item - 1, -1):
+            if dp[i - weight_item] == -INF:
+                continue
+            dp[i] = max(dp[i], dp[i - weight_item] + value_item)
+
+    print(max(dp))
     sys.exit()
 
 
